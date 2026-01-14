@@ -90,32 +90,25 @@ This toolkit gives you the whole system:
 
 **No context loss.** Every session builds on the last. Every contributor adds to the knowledge center. Every decision is recorded.
 
-## Requirements
-
-- [Claude Code](https://claude.ai/download) - Anthropic's official CLI
-- [Claude Pro](https://claude.ai/pro) ($20/mo) or [Claude Max](https://claude.ai/max) ($100/mo) subscription
-
 ## Quick Start
+
+**Requirements:** Claude Code + Claude Pro ($20/month)
 
 ```bash
 # 1. Clone this repo
-git clone https://github.com/402goose/gtm-toolkit
+git clone https://github.com/402goose/gtm-toolkit.git
 cd gtm-toolkit
 
-# 2. Set up your foundation
-cp templates/strategic/VISION.md knowledge/VISION.md
-cp templates/strategic/NARRATIVE.md knowledge/NARRATIVE.md
-# Edit with your strategy
-
-# 3. Configure collaboration
-# Edit CLAUDE.md with your team info
-
-# 4. Start Claude Code
+# 2. Start Claude Code
 claude
 
-# 5. Run the HUD to see status
-/hud
+# 3. Tell Claude what you want
+> Help me launch my product
 ```
+
+Claude will walk you through setting up your vision, brand, and launch content.
+
+Never used Claude Code? See the [Getting Started Guide](GETTING_STARTED.md).
 
 ## Folder Structure
 
