@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>just-fucking-launch | GTM toolkit for Claude Code</title>
+  <meta name="description" content="A Claude Code-powered GTM toolkit. Go from idea to shipped product. Just fucking launch already.">
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="just-fucking-launch">
+  <meta property="og:description" content="A Claude Code-powered GTM toolkit. Go from idea to shipped product.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://justfuckinglaunch.com">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="just-fucking-launch">
+  <meta name="twitter:description" content="A Claude Code-powered GTM toolkit. Go from idea to shipped product.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --accent: #00ff88;
+      --muted: #666;
+      --surface: #111;
+      --border: #333;
+    }
+
+    body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #00cc6a;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--fg);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #1a1a1a;
+      border-color: #444;
+    }
+
+    .requirements {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .requirements a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .requirements a:hover {
+      text-decoration: underline;
+    }
+
+    /* Quick Start */
+    .quickstart {
+      padding: 40px 0;
+    }
+
+    .quickstart h2 {
+      font-size: 1rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .code-block .comment {
+      color: var(--muted);
+    }
+
+    .code-block .command {
+      color: var(--accent);
+    }
+
+    .code-block .prompt {
+      color: #888;
+    }
+
+    /* What You Get */
+    .features {
+      padding: 60px 0;
+    }
+
+    .features h2 {
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* Pattern */
+    .pattern {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .pattern h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .pattern-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .pattern-diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .pattern-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .pattern-box {
+      padding: 16px 24px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .pattern-box.highlight {
+      border-color: var(--accent);
+      background: rgba(0, 255, 136, 0.05);
+    }
+
+    .pattern-arrow {
+      color: var(--muted);
+      font-size: 1.5rem;
+    }
+
+    .pattern-example {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .pattern-example a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .pricing h2 {
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features li::before {
+      content: "+ ";
+      color: var(--accent);
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--fg);
+    }
+
+    .footer-tagline {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      header {
+        padding: 40px 0 32px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .pattern-flow {
+        flex-direction: column;
+      }
+
+      .pattern-arrow {
+        transform: rotate(90deg);
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>just-fucking-launch</h1>
+      <p class="tagline">Just fucking launch already.</p>
+      <p class="subtitle">A Claude Code-powered GTM toolkit. Go from idea to shipped product.</p>
+    </header>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-buttons">
+        <a href="https://github.com/402goose/just-fucking-launch" class="btn btn-primary">
+          View on GitHub
+        </a>
+        <a href="#pro" class="btn btn-secondary">
+          Pro Version →
+        </a>
+      </div>
+      <p class="requirements">
+        Requires <a href="https://claude.ai">Claude Pro</a> ($20/month)
+      </p>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="quickstart">
+      <h2>Quick Start</h2>
+      <div class="code-block">
+<pre><span class="comment"># 1. Clone the repo</span>
+<span class="command">git clone https://github.com/402goose/just-fucking-launch.git</span>
+<span class="command">cd just-fucking-launch</span>
+
+<span class="comment"># 2. Start Claude Code</span>
+<span class="command">claude</span>
+
+<span class="comment"># 3. Tell Claude what you want</span>
+<span class="prompt">&gt;</span> Help me launch my product</pre>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <h2>What you get</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">📋</div>
+          <h3>Strategic Foundation</h3>
+          <p>Vision, narrative, thesis templates that inform everything else.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <h3>Brand Identity</h3>
+          <p>Generate marks, colors, typography. Preview in real contexts.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✍️</div>
+          <h3>Launch Content</h3>
+          <p>Threads, articles, one-pagers. All in your voice.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h3>Team Coordination</h3>
+          <p>CRM through conversation. Tasks without spreadsheets.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Campaign HUD</h3>
+          <p>Countdown, phases, milestones. Know where you are.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🖼️</div>
+          <h3>Asset Generation</h3>
+          <p>Favicons, OG images, banners. Export-ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pattern -->
+    <section class="pattern">
+      <h2>The Pattern</h2>
+      <p class="pattern-subtitle">Build a skill. Monetize it. This toolkit handles the GTM.</p>
+      <div class="pattern-diagram">
+        <div class="pattern-flow">
+          <div class="pattern-box">
+            <strong>Skill</strong><br>
+            <span style="color: var(--muted)">Free / GitHub</span>
+          </div>
+          <span class="pattern-arrow">→</span>
+          <div class="pattern-box highlight">
+            <strong>GTM Toolkit</strong><br>
+            <span style="color: var(--muted)">Brand + Content</span>
+          </div>
+          <span class="pattern-arrow">→</span>
+          <div class="pattern-box">
+            <strong>Product</strong><br>
+            <span style="color: var(--muted)">$50-$200</span>
+          </div>
+        </div>
+        <p class="pattern-example">
+          Example: <a href="https://github.com/rohunvora/just-fucking-cancel">just-fucking-cancel</a> → <a href="https://justcancel.io">justcancel.io</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pro">
+      <h2>Pricing</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="pricing-price">$0</div>
+          <ul class="pricing-features">
+            <li>Full toolkit on GitHub</li>
+            <li>All templates included</li>
+            <li>All skills included</li>
+            <li>Preview system</li>
+            <li>402.cat example</li>
+          </ul>
+          <a href="https://github.com/402goose/just-fucking-launch" class="btn btn-secondary">
+            Get Started
+          </a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Pro</h3>
+          <div class="pricing-price">$100 <span>one-time</span></div>
+          <ul class="pricing-features">
+            <li>Everything in Free</li>
+            <li>Industry templates (SaaS, crypto, agency)</li>
+            <li>5 complete GTM examples</li>
+            <li>Pre-built launch playbooks</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="btn btn-primary" onclick="alert('Coming soon!'); return false;">
+            Coming Soon
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/402goose/just-fucking-launch">GitHub</a>
+        <a href="https://github.com/402goose/just-fucking-launch/blob/main/GETTING_STARTED.md">Docs</a>
+        <a href="https://twitter.com/402goose">Twitter</a>
+      </div>
+      <p class="footer-tagline">Stop planning. Start shipping.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
