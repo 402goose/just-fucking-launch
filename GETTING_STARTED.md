@@ -1,4 +1,4 @@
-# Getting Started with GTM Toolkit
+# Getting Started with just-fucking-launch
 
 Never used Claude Code before? This guide will get you from zero to running your first GTM campaign in about 10 minutes.
 
@@ -43,11 +43,11 @@ You should see a version number. If not, try closing and reopening your terminal
 
 ---
 
-## Step 2: Get the GTM Toolkit
+## Step 2: Get the just-fucking-launch
 
 ### Option A: Download ZIP
 
-1. Go to [github.com/402goose/gtm-toolkit](https://github.com/402goose/gtm-toolkit)
+1. Go to [github.com/402goose/just-fucking-launch](https://github.com/402goose/just-fucking-launch)
 2. Click the green "Code" button
 3. Click "Download ZIP"
 4. Unzip the folder somewhere you'll remember
@@ -55,8 +55,8 @@ You should see a version number. If not, try closing and reopening your terminal
 ### Option B: Clone with Git
 
 ```bash
-git clone https://github.com/402goose/gtm-toolkit.git
-cd gtm-toolkit
+git clone https://github.com/402goose/just-fucking-launch.git
+cd just-fucking-launch
 ```
 
 ---
@@ -66,7 +66,7 @@ cd gtm-toolkit
 Navigate to the toolkit folder:
 
 ```bash
-cd gtm-toolkit
+cd just-fucking-launch
 ```
 
 Start Claude Code:
@@ -177,7 +177,7 @@ Claude walks you through the whole process conversationally.
 After setup, your toolkit looks like:
 
 ```
-gtm-toolkit/
+just-fucking-launch/
 ├── knowledge/           ← Your filled-out docs
 │   ├── VISION.md
 │   ├── NARRATIVE.md
@@ -214,9 +214,9 @@ Go to [claude.ai](https://claude.ai) and make sure you have an active Pro subscr
 
 ### "No such file or directory"
 
-Make sure you're in the gtm-toolkit folder:
+Make sure you're in the just-fucking-launch folder:
 ```bash
-cd path/to/gtm-toolkit
+cd path/to/just-fucking-launch
 ```
 
 ### Claude seems confused
@@ -238,11 +238,11 @@ Once you're set up:
 
 ## Cost
 
-- **GTM Toolkit**: Free
+- **just-fucking-launch**: Free
 - **Claude Pro**: $20/month
 
 Your data stays local. Only your conversation with Claude goes to Anthropic.
 
 ---
 
-Questions? Open an issue at [github.com/402goose/gtm-toolkit/issues](https://github.com/402goose/gtm-toolkit/issues)
+Questions? Open an issue at [github.com/402goose/just-fucking-launch/issues](https://github.com/402goose/just-fucking-launch/issues)

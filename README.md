@@ -1,6 +1,10 @@
-# GTM Toolkit
+# just-fucking-launch
 
-A Claude Code-powered workflow for running go-to-market campaigns from zero to launch.
+Just fucking launch already.
+
+A Claude Code-powered GTM toolkit. Go from idea to shipped product.
+
+**Website:** [justfuckinglaunch.com](https://justfuckinglaunch.com)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -96,8 +100,8 @@ This toolkit gives you the whole system:
 
 ```bash
 # 1. Clone this repo
-git clone https://github.com/402goose/gtm-toolkit.git
-cd gtm-toolkit
+git clone https://github.com/402goose/just-fucking-launch.git
+cd just-fucking-launch
 
 # 2. Start Claude Code
 claude
@@ -113,7 +117,7 @@ Never used Claude Code? See the [Getting Started Guide](GETTING_STARTED.md).
 ## Folder Structure
 
 ```
-gtm-toolkit/
+just-fucking-launch/
 ├── CLAUDE.md                      # Claude Code instructions (THE BRAIN)
 ├── README.md                      # This file
 │
